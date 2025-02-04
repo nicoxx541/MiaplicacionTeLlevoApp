@@ -1,0 +1,100 @@
+<!-- Menú lateral -->
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <!-- Perfil del usuario -->
+    <div class="profile-container">
+      <ion-avatar>
+        <img src="assets/img/usuario.png" alt="Foto de perfil">
+      </ion-avatar>
+      <p class="user-name">{{email}}</p>
+    </div>
+
+    <ion-list>
+      <ion-item (click)="navigateTo('agregar-vehiculo')">
+        <ion-icon name="car-outline" slot="start"></ion-icon>
+        <ion-label>Registrar Vehículo</ion-label>
+      </ion-item>
+
+      <ion-item (click)="navigateTo('ver-vehiculos')">
+        <ion-icon name="car-sport-outline" slot="start"></ion-icon>
+        <ion-label>Ver Vehículos</ion-label>
+      </ion-item>
+
+      <ion-item (click)="navigateTo('agregar-viaje')">
+        <ion-icon name="paper-plane-outline" slot="start"></ion-icon>
+        <ion-label>Crear Viaje</ion-label>
+      </ion-item>
+
+      <ion-item (click)="navigateTo('ver-viajes')">
+        <ion-icon name="bus-outline" slot="start"></ion-icon>
+        <ion-label>Ver Viajes</ion-label>
+      </ion-item>
+      
+      <ion-item (click)="navigateTo('historial-viajes')">
+        <ion-icon name="time-outline" slot="start"></ion-icon>
+        <ion-label>Historial de Viajes</ion-label>
+      </ion-item>
+
+      <ion-item (click)="navigateTo('soporte')">
+        <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+        <ion-label>Soporte y Ayuda</ion-label>
+      </ion-item>
+
+      <ion-item (click)="logout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-label>Logout</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido Principal -->
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar style="background-color: #EFC3CA;">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Bienvenido</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding main-content">
+    <!-- Imagen de Uber -->
+    <div class="header-container">
+      <img src="assets/img/uber.png" alt="Transporte" class="header-image">
+    </div>
+
+    <div class="welcome-container">
+      <h1 class="welcome-text">¡Bienvenido a TeLlevoAPP!</h1>
+      <p class="user-text">Usuario: {{email}}</p>
+      
+      <!-- Botón para publicar viaje -->
+      <ion-button (click)="navigateTo('agregar-viaje')" expand="block" color="success">
+        Publicar Viaje
+      </ion-button>
+    </div>
+    
+    <!-- Mapa de ubicación -->
+    <ion-card>
+      <ion-img src="assets/img/LocDuoc.jpg" alt="Imagen del mapa de ubicación" class="maps"></ion-img>
+    </ion-card>
+    
+    <!-- Lista de viajes disponibles -->
+    <ion-list>
+      <ion-item *ngFor="let viaje of viajesDisponibles" (click)="verDetallesViaje(viaje.id)">
+        <ion-icon name="location-outline" slot="start"></ion-icon>
+        <ion-label>
+          {{viaje.origen}} → {{viaje.destino}}
+        </ion-label>
+        <ion-badge color="primary">${{viaje.costo}}</ion-badge>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</div>

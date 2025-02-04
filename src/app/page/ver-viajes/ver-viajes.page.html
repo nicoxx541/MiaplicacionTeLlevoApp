@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar style="background-color: #EFC3CA;">
+    <!-- Botón de Volver Atrás -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/principal"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis Viajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="background-color: #d6eaf8;">
+  <!-- Spinner de carga -->
+  <div class="spinner-container" *ngIf="!viajes.length" style="text-align: center; margin-top: 30px;">
+    <ion-spinner></ion-spinner>
+    <p style="color: #EFC3CA;">Cargando viajes...</p>
+  </div>
+
+  <!-- Mensaje si no hay viajes -->
+  <div *ngIf="viajes.length === 0 && usuario.length > 0" style="text-align: center; margin-top: 40px;">
+    <ion-icon name="car-outline" class="no-vehiculos-icon" style="font-size: 50px; color: #F7A1C7;"></ion-icon>
+    <p style="color: #333333;">No tienes viajes registrados.</p>
+  </div>
+
+  <!-- Lista de Viajes -->
+  <ion-card *ngFor="let viaje of viajes" class="vehiculo-card" style="background-color: #FFFFFF; border-radius: 10px; margin-bottom: 20px;">
+    <ion-card-header style="background-color: #EFC3CA;">
+      <ion-card-title style="color: #333333;">Viaje de {{ viaje.ubicacion_origen }} a {{ viaje.ubicacion_destino }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="color: #333333;">
+      <p><strong>Origen:</strong> {{ viaje.ubicacion_origen }}</p>
+      <p><strong>Destino:</strong> {{ viaje.ubicacion_destino }}</p>
+      <p><strong>Costo:</strong> {{ viaje.costo }}</p>
+      <p><strong>Estado:</strong> {{ viaje.id_estado }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

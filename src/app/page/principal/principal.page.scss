@@ -1,0 +1,80 @@
+/* General Colors */
+:root {
+    --background-dark: #1e1e2f;
+    --primary-color: #005eff;
+    --danger-color: #ff4757;
+    --text-light: #fff;
+    --text-dark: #333;
+  }
+  
+  /* Menu Styling */
+  .menu-content {
+    background: var(--primary-color);
+    color: var(--text-light);
+  }
+  
+  .menu-text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  /* Header Image */
+  .header-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header-image {
+    max-width: 100%;
+    border-radius: 15px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Welcome Text */
+  .welcome-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .welcome-text {
+    font-size: 24px;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .user-text {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+  }
+  
+  /* Buttons */
+  .logout-button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .logout-button:hover {
+    transform: scale(1.05);
+    background-color: #ff6b81;
+  }
+  
+  /* Footer */
+  .footer-title {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-light);
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

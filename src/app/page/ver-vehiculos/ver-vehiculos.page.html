@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar style="background-color: #EFC3CA;">
+    <!-- Botón de Volver (arriba) -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis Vehículos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="background-color: #d6eaf8;">
+  <!-- Spinner de carga -->
+  <div class="spinner-container" *ngIf="!vehiculos.length" style="text-align: center; margin-top: 30px;">
+    <ion-spinner></ion-spinner>
+    <p style="color: #EFC3CA;">Cargando vehículos...</p>
+  </div>
+
+  <!-- Lista de Vehículos -->
+  <ion-card *ngFor="let vehiculo of vehiculos" class="vehiculo-card" style="background-color: #FFFFFF; border-radius: 10px; margin-bottom: 20px;">
+    <ion-card-header>
+      <ion-card-title style="color: #6c9f95;">Patente: {{ vehiculo.patente }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="color: #333333;">
+      <p><strong>Marca:</strong> {{ vehiculo.marca }}</p>
+      <p><strong>Modelo:</strong> {{ vehiculo.modelo }}</p>
+      <p><strong>Año:</strong> {{ vehiculo.anio }}</p>
+      <p><strong>Color:</strong> {{ vehiculo.color }}</p>
+      <p><strong>Combustible:</strong> {{ vehiculo.tipo_combustible }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Mensaje si no hay vehículos -->
+  <div class="no-vehiculos" *ngIf="vehiculos.length === 0" style="text-align: center; margin-top: 40px;">
+    <ion-icon name="car-outline" class="no-vehiculos-icon" style="font-size: 50px; color: #F7A1C7;"></ion-icon>
+    <p style="color: #333333;">No tienes vehículos registrados.</p>
+  </div>
+</ion-content>

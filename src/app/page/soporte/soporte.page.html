@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!-- El botón de retroceso llevará al usuario de regreso a la página anterior -->
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Soporte y Ayuda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Bienvenido a la sección de Soporte y Ayuda</h2>
+
+  <p>Usuario: {{ email }}</p> <!-- Mostrar el correo aquí -->
+
+  <p>¿Tienes dudas o necesitas ayuda? Aquí te damos algunas respuestas a las preguntas más comunes:</p>
+  
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <h3>¿Cómo crear un viaje?</h3>
+        <p>Sigue estos pasos para programar tu viaje de retorno...</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h3>¿Cómo solicitar un viaje?</h3>
+        <p>Verifica los viajes disponibles y solicita uno que se ajuste a tu ruta...</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <h3>Si tienes más dudas, no dudes en contactarnos</h3>
+  <p>Envía un correo a <a href="mailto:soporte&#64;tellevoapp.com">soporte&#64;tellevoapp.com</a> para recibir asistencia personalizada.</p>
+</ion-content>
